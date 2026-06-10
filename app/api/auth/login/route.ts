@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { createOAuthState } from "@/lib/session";
+import { getSpotifyRedirectUri } from "@/lib/spotify";
 
 export async function GET() {
   const clientId = process.env.SPOTIFY_CLIENT_ID;
-  const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
-  if (!clientId || !redirectUri) {
+  const redirectUri = getSpotifyRedirectUri();
+  if (!clientId) {
     return NextResponse.json({ error: "Spotify is not configured" }, { status: 500 });
   }
 

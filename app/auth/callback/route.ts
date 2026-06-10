@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabase } from "@/lib/supabase";
+import { getSpotifyRedirectUri } from "@/lib/spotify";
 import {
   createSessionToken,
   sessionCookieOptions,
@@ -56,7 +57,7 @@ export async function GET(request: NextRequest) {
       body: new URLSearchParams({
         grant_type: "authorization_code",
         code,
-        redirect_uri: process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI ?? "",
+        redirect_uri: getSpotifyRedirectUri(),
       }),
     });
     if (!tokenRes.ok) {

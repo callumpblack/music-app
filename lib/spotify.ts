@@ -16,6 +16,19 @@ export interface SpotifyAlbum {
   external_urls: { spotify: string };
 }
 
+/**
+ * In dev the Spotify app only has http://127.0.0.1:3000/auth/callback
+ * registered; in production the env var carries the deployed URL.
+ */
+export function getSpotifyRedirectUri(): string {
+  if (process.env.NODE_ENV === "development") {
+    return "http://127.0.0.1:3000/auth/callback";
+  }
+  const uri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
+  if (!uri) throw new Error("NEXT_PUBLIC_SPOTIFY_REDIRECT_URI is not set");
+  return uri.trim();
+}
+
 let cachedToken: { value: string; expiresAt: number } | null = null;
 
 export async function getAppToken(): Promise<string> {
