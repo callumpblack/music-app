@@ -15,9 +15,9 @@ interface AlbumGridProps {
 function SkeletonCard() {
   return (
     <div className="animate-pulse">
-      <div className="aspect-square w-full rounded-3xl bg-rose-100" />
-      <div className="mt-3 h-4 w-3/4 rounded-full bg-rose-100" />
-      <div className="mt-2 h-3 w-1/2 rounded-full bg-rose-50" />
+      <div className="aspect-square w-full rounded-3xl bg-white/10" />
+      <div className="mt-3 h-4 w-3/4 rounded-full bg-white/10" />
+      <div className="mt-2 h-3 w-1/2 rounded-full bg-white/5" />
     </div>
   );
 }
@@ -41,7 +41,7 @@ export default function AlbumGrid({
 
   if (albums.length === 0) {
     return (
-      <div className="animate-fade-up flex flex-col items-center rounded-3xl border-2 border-dashed border-rose-200 bg-white/60 px-6 py-20 text-center">
+      <div className="animate-fade-up flex flex-col items-center rounded-3xl border-2 border-dashed border-edge bg-card/40 px-6 py-20 text-center">
         <svg viewBox="0 0 24 24" fill="none" className="h-14 w-14 text-primary-soft" aria-hidden="true">
           <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
           <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.5" />
@@ -51,7 +51,7 @@ export default function AlbumGrid({
         <button
           type="button"
           onClick={onAdd}
-          className="mt-6 cursor-pointer rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-primary/30 transition-colors duration-200 hover:bg-rose-700"
+          className="mt-6 cursor-pointer rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-black/30 transition-colors duration-200 hover:bg-primary-deep"
         >
           Add your first album
         </button>
@@ -63,7 +63,7 @@ export default function AlbumGrid({
     <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
       {albums.map((album) => (
         <div key={album.id} className="group animate-fade-up">
-          <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-rose-100 shadow-md transition-shadow duration-200 group-hover:shadow-xl">
+          <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-card shadow-md shadow-black/30 transition-shadow duration-200 group-hover:shadow-xl group-hover:shadow-black/50">
             {album.cover_image_url ? (
               <Image
                 src={album.cover_image_url}
@@ -82,9 +82,9 @@ export default function AlbumGrid({
             )}
 
             {/* Hover / focus-within overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink/90 via-ink/40 to-transparent p-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
+            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
               <p className="truncate font-semibold text-white">{album.album_name}</p>
-              <p className="truncate text-sm text-rose-200">{album.artist_name}</p>
+              <p className="truncate text-sm text-white/70">{album.artist_name}</p>
               {album.rating != null && (
                 <div className="mt-1">
                   <StarRating value={album.rating} />
@@ -94,14 +94,14 @@ export default function AlbumGrid({
                 <button
                   type="button"
                   onClick={() => onEdit(album)}
-                  className="cursor-pointer rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-ink transition-colors duration-200 hover:bg-accent hover:text-white"
+                  className="cursor-pointer rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-surface transition-colors duration-200 hover:bg-primary hover:text-white"
                 >
                   Edit review
                 </button>
                 <button
                   type="button"
                   onClick={() => onDelete(album)}
-                  className="cursor-pointer rounded-full bg-white/20 px-3 py-1.5 text-xs font-semibold text-white transition-colors duration-200 hover:bg-primary"
+                  className="cursor-pointer rounded-full bg-white/20 px-3 py-1.5 text-xs font-semibold text-white transition-colors duration-200 hover:bg-accent hover:text-surface"
                 >
                   Delete
                 </button>
@@ -118,7 +118,7 @@ export default function AlbumGrid({
                 type="button"
                 onClick={() => onEdit(album)}
                 aria-label={`Edit review for ${album.album_name}`}
-                className="cursor-pointer rounded-full px-2 py-1 text-xs font-semibold text-accent"
+                className="cursor-pointer rounded-full px-2 py-1 text-xs font-semibold text-primary-soft"
               >
                 Edit
               </button>

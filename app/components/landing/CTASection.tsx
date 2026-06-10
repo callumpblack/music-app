@@ -1,7 +1,7 @@
 export default function CTASection() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-      <div className="rounded-3xl border border-rose-100 bg-white px-6 py-14 text-center shadow-lg shadow-rose-100/50 sm:px-12">
+      <div className="rounded-3xl border border-edge bg-card px-6 py-14 text-center shadow-lg shadow-black/30 sm:px-12">
         <h2 className="font-display text-3xl text-ink sm:text-4xl">
           Keep track of what you love.
         </h2>
@@ -10,7 +10,7 @@ export default function CTASection() {
         </p>
         <a
           href="/api/auth/login"
-          className="mt-8 inline-block cursor-pointer rounded-3xl bg-primary px-10 py-4 text-lg font-semibold text-white shadow-lg shadow-primary/30 transition-colors duration-200 hover:bg-rose-700"
+          className="mt-8 inline-block cursor-pointer rounded-3xl bg-primary px-10 py-4 text-lg font-semibold text-white shadow-lg shadow-black/30 transition-colors duration-200 hover:bg-primary-deep"
         >
           Create your free account
         </a>

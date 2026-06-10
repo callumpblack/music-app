@@ -15,7 +15,7 @@ function CountdownBadge({ date }: { date: string }) {
   return (
     <span
       className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap ${
-        days <= 7 ? "bg-primary-faint text-primary" : "bg-accent-faint text-accent"
+        days <= 7 ? "bg-accent-faint text-accent" : "bg-primary-faint text-primary-soft"
       }`}
     >
       {label}
@@ -27,7 +27,7 @@ function Cover({ src, alt }: { src: string | null; alt: string }) {
   const [failed, setFailed] = useState(false);
   if (!src || failed) {
     return (
-      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-rose-100 text-primary-soft">
+      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-surface text-primary-soft">
         <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
           <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
           <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.5" />
@@ -42,7 +42,7 @@ function Cover({ src, alt }: { src: string | null; alt: string }) {
       alt={alt}
       loading="lazy"
       onError={() => setFailed(true)}
-      className="h-14 w-14 shrink-0 rounded-xl bg-rose-100 object-cover shadow-sm"
+      className="h-14 w-14 shrink-0 rounded-xl bg-surface object-cover shadow-sm"
     />
   );
 }
@@ -151,7 +151,7 @@ export default function UpcomingPage() {
           id="upcoming-genre"
           value={genreFilter}
           onChange={(e) => setGenreFilter(e.target.value)}
-          className="cursor-pointer rounded-full border border-rose-200 bg-white px-4 py-2 text-sm font-medium text-ink shadow-sm transition-colors duration-200 hover:border-primary-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="cursor-pointer rounded-full border border-edge bg-card px-4 py-2 text-sm font-medium text-ink shadow-sm transition-colors duration-200 hover:border-primary-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-soft"
         >
           <option value="">All genres</option>
           {genres.map((genre) => (
@@ -160,7 +160,7 @@ export default function UpcomingPage() {
             </option>
           ))}
         </select>
-        <div className="flex rounded-full border border-rose-200 bg-white p-1 shadow-sm">
+        <div className="flex rounded-full border border-edge bg-card p-1 shadow-sm">
           {(["all", "month"] as const).map((option) => (
             <button
               key={option}
@@ -169,7 +169,7 @@ export default function UpcomingPage() {
               className={`cursor-pointer rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-200 ${
                 windowFilter === option
                   ? "bg-primary text-white"
-                  : "text-ink-soft hover:text-primary"
+                  : "text-ink-soft hover:text-primary-soft"
               }`}
             >
               {option === "all" ? "Next 6 months" : "Next 30 days"}
@@ -182,18 +182,18 @@ export default function UpcomingPage() {
         {loading && (
           <div className="space-y-3">
             {Array.from({ length: 6 }, (_, i) => (
-              <div key={i} className="h-20 animate-pulse rounded-3xl bg-rose-100/70" />
+              <div key={i} className="h-20 animate-pulse rounded-3xl bg-white/10" />
             ))}
           </div>
         )}
 
         {!loading && error && (
-          <div className="rounded-3xl border-2 border-dashed border-rose-200 bg-white/60 px-6 py-16 text-center">
+          <div className="rounded-3xl border-2 border-dashed border-edge bg-card/40 px-6 py-16 text-center">
             <p className="text-lg font-semibold text-ink">Could not load upcoming albums</p>
             <button
               type="button"
               onClick={load}
-              className="mt-4 cursor-pointer rounded-full bg-primary px-6 py-2.5 font-semibold text-white transition-colors duration-200 hover:bg-rose-700"
+              className="mt-4 cursor-pointer rounded-full bg-primary px-6 py-2.5 font-semibold text-white transition-colors duration-200 hover:bg-primary-deep"
             >
               Try again
             </button>
@@ -207,7 +207,7 @@ export default function UpcomingPage() {
               return (
                 <li
                   key={album.id}
-                  className="animate-fade-up flex items-center gap-4 rounded-3xl border border-rose-100 bg-white p-3 shadow-sm transition-shadow duration-200 hover:shadow-md sm:p-4"
+                  className="animate-fade-up flex items-center gap-4 rounded-3xl border border-edge bg-card p-3 shadow-sm transition-shadow duration-200 hover:shadow-md hover:shadow-black/40 sm:p-4"
                 >
                   <Cover src={album.coverImageUrl} alt={`${album.albumName} cover`} />
                   <div className="min-w-0 flex-1">
@@ -218,7 +218,7 @@ export default function UpcomingPage() {
                       {album.genres.slice(0, 2).map((genre) => (
                         <span
                           key={genre}
-                          className="hidden rounded-full bg-rose-50 px-2 py-0.5 text-xs font-medium text-primary sm:inline-block"
+                          className="hidden rounded-full bg-primary-faint px-2 py-0.5 text-xs font-medium text-primary-soft sm:inline-block"
                         >
                           {genre}
                         </span>
@@ -244,8 +244,8 @@ export default function UpcomingPage() {
                       onClick={() => toggleWatchlist(album)}
                       className={`cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
                         inWatchlist
-                          ? "bg-mint/15 text-emerald-700 hover:bg-mint/25"
-                          : "bg-accent text-white shadow-md shadow-accent/30 hover:bg-blue-700"
+                          ? "bg-mint/15 text-emerald-300 hover:bg-mint/25"
+                          : "bg-accent text-surface shadow-md shadow-black/30 hover:bg-accent-deep"
                       }`}
                     >
                       {inWatchlist ? "On watchlist ✓" : "Watchlist"}
@@ -255,7 +255,7 @@ export default function UpcomingPage() {
               );
             })}
             {visible.length === 0 && (
-              <li className="rounded-3xl border-2 border-dashed border-rose-200 bg-white/60 px-6 py-16 text-center text-ink-soft">
+              <li className="rounded-3xl border-2 border-dashed border-edge bg-card/40 px-6 py-16 text-center text-ink-soft">
                 No upcoming albums match those filters.
               </li>
             )}

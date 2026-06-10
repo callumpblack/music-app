@@ -17,7 +17,7 @@ interface FilterBarProps {
 }
 
 const selectClass =
-  "cursor-pointer rounded-full border border-rose-200 bg-white px-4 py-2 text-sm font-medium text-ink shadow-sm transition-colors duration-200 hover:border-primary-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+  "cursor-pointer rounded-full border border-edge bg-card px-4 py-2 text-sm font-medium text-ink shadow-sm transition-colors duration-200 hover:border-primary-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-soft";
 
 export default function FilterBar({
   filters,
@@ -77,7 +77,7 @@ export default function FilterBar({
         <option value="year">Release year</option>
       </select>
 
-      <span className="ml-auto rounded-full bg-accent-faint px-3 py-1 text-sm font-semibold text-accent">
+      <span className="ml-auto rounded-full bg-primary-faint px-3 py-1 text-sm font-semibold text-primary-soft">
         {resultCount} {resultCount === 1 ? "album" : "albums"}
       </span>
     </div>

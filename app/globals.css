@@ -1,29 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #fff8f4;
-  --color-ink: #231a2e;
-  --color-ink-soft: #5c5470;
-  --color-primary: #e11d48;
-  --color-primary-soft: #fb7185;
-  --color-primary-faint: #ffe4e6;
-  --color-accent: #2563eb;
-  --color-accent-faint: #dbeafe;
-  --color-star: #f59e0b;
+  --color-surface: #1a1d29;
+  --color-card: #252836;
+  --color-edge: #3a3f4b;
+  --color-ink: #e8eaed;
+  --color-ink-soft: #a6acbf;
+  --color-primary: #1e7a8f;
+  --color-primary-deep: #16606f;
+  --color-primary-soft: #56bbd3;
+  --color-primary-faint: #16323d;
+  --color-accent: #d4af37;
+  --color-accent-deep: #b8962e;
+  --color-accent-faint: #332c18;
+  --color-star: #d4af37;
   --color-mint: #10b981;
   --font-display: var(--font-righteous), sans-serif;
   --font-sans: var(--font-poppins), sans-serif;
 }
 
 body {
-  background-color: var(--color-cream);
+  background-color: var(--color-surface);
   color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
 ::selection {
   background: var(--color-primary-faint);
-  color: var(--color-primary);
+  color: var(--color-primary-soft);
 }
 
 @keyframes fade-up {

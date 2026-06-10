@@ -6,7 +6,7 @@ import type { PopularAlbum } from "@/lib/popular";
 export default function PopularAlbums({ albums }: { albums: PopularAlbum[] }) {
   if (albums.length === 0) {
     return (
-      <p className="rounded-3xl border-2 border-dashed border-rose-200 bg-white/60 px-6 py-12 text-center text-ink-soft">
+      <p className="rounded-3xl border-2 border-dashed border-edge bg-card/40 px-6 py-12 text-center text-ink-soft">
         No albums in this genre yet — be the first to rate one!
       </p>
     );
@@ -22,7 +22,7 @@ export default function PopularAlbums({ albums }: { albums: PopularAlbum[] }) {
           rel={album.spotifyUrl ? "noopener noreferrer" : undefined}
           className="group animate-fade-up cursor-pointer"
         >
-          <div className="relative aspect-square overflow-hidden rounded-2xl bg-rose-100 shadow-md transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-xl">
+          <div className="relative aspect-square overflow-hidden rounded-2xl bg-card shadow-md shadow-black/30 transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/50">
             {album.coverImageUrl ? (
               <Image
                 src={album.coverImageUrl}
@@ -39,9 +39,9 @@ export default function PopularAlbums({ albums }: { albums: PopularAlbum[] }) {
                 </svg>
               </div>
             )}
-            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink/90 via-ink/30 to-transparent p-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/30 to-transparent p-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
               <p className="truncate text-sm font-semibold text-white">{album.albumName}</p>
-              <p className="truncate text-xs text-rose-200">{album.artistName}</p>
+              <p className="truncate text-xs text-white/70">{album.artistName}</p>
               <p className="mt-0.5 text-xs font-medium text-star">
                 {album.avgRating != null
                   ? `${album.avgRating.toFixed(1)}★ from ${album.reviewCount} rating${album.reviewCount === 1 ? "" : "s"}`

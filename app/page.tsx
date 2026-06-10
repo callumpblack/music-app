@@ -50,7 +50,7 @@ export default async function LandingPage({
         <div className="mx-auto max-w-6xl px-4 pt-4 sm:px-6">
           <p
             role="alert"
-            className="rounded-2xl bg-primary-faint px-4 py-3 text-sm font-medium text-primary"
+            className="rounded-2xl bg-accent-faint px-4 py-3 text-sm font-medium text-accent"
           >
             {ERROR_MESSAGES[error] ?? "Login didn't work — please try again."}
           </p>

@@ -1,10 +1,10 @@
 "use client";
 
 const PILL_COLORS = [
-  "bg-primary-faint text-primary hover:bg-primary hover:text-white",
-  "bg-accent-faint text-accent hover:bg-accent hover:text-white",
-  "bg-amber-100 text-amber-700 hover:bg-star hover:text-white",
-  "bg-emerald-100 text-emerald-700 hover:bg-mint hover:text-white",
+  "bg-primary-faint text-primary-soft hover:bg-primary hover:text-white",
+  "bg-accent-faint text-accent hover:bg-accent hover:text-surface",
+  "bg-mint/15 text-emerald-300 hover:bg-mint hover:text-white",
+  "bg-white/10 text-ink hover:bg-white/20",
 ];
 
 interface TrendingGenresProps {
@@ -24,8 +24,8 @@ export default function TrendingGenres({ genres, selected, onSelect }: TrendingG
         aria-pressed={selected === ""}
         className={`min-h-11 cursor-pointer rounded-full px-5 text-sm font-semibold transition-colors duration-200 ${
           selected === ""
-            ? "bg-ink text-white"
-            : "bg-white text-ink-soft shadow-sm hover:text-ink"
+            ? "bg-ink text-surface"
+            : "bg-card text-ink-soft shadow-sm hover:text-ink"
         }`}
       >
         All genres
@@ -38,7 +38,7 @@ export default function TrendingGenres({ genres, selected, onSelect }: TrendingG
           aria-pressed={selected === genre.name}
           className={`min-h-11 cursor-pointer rounded-full px-5 text-sm font-semibold transition-colors duration-200 ${
             selected === genre.name
-              ? "bg-ink text-white"
+              ? "bg-ink text-surface"
               : PILL_COLORS[i % PILL_COLORS.length]
           }`}
         >

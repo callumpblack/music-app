@@ -89,7 +89,7 @@ export default function DashboardPage() {
             setEditTarget(null);
             setModalOpen(true);
           }}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-primary/30 transition-colors duration-200 hover:bg-rose-700"
+          className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-black/30 transition-colors duration-200 hover:bg-primary-deep"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5" aria-hidden="true">
             <path strokeLinecap="round" d="M12 5v14M5 12h14" />

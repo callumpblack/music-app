@@ -36,7 +36,7 @@ export default function Hero({ covers }: { covers: HeroCover[] }) {
       <div className="animate-fade-up">
         <h1 className="font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl">
           Track the albums you{" "}
-          <span className="text-primary">love</span>.
+          <span className="text-accent">love</span>.
         </h1>
         <p className="mt-5 max-w-md text-lg text-ink-soft">
           See what members are rating. Discover new music. Never miss a
@@ -45,20 +45,20 @@ export default function Hero({ covers }: { covers: HeroCover[] }) {
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href="/api/auth/login"
-            className="cursor-pointer rounded-3xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-primary/30 transition-colors duration-200 hover:bg-rose-700"
+            className="cursor-pointer rounded-3xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-black/30 transition-colors duration-200 hover:bg-primary-deep"
           >
             Get started — it&apos;s free
           </a>
           <a
             href="/api/auth/login"
-            className="cursor-pointer rounded-3xl border-2 border-rose-200 px-6 py-3.5 font-semibold text-ink transition-colors duration-200 hover:border-primary hover:text-primary"
+            className="cursor-pointer rounded-3xl border-2 border-edge px-6 py-3.5 font-semibold text-ink transition-colors duration-200 hover:border-primary-soft hover:text-primary-soft"
           >
             Log in with Spotify
           </a>
         </div>
         <a
           href="#popular"
-          className="mt-5 inline-block cursor-pointer text-sm font-medium text-ink-soft underline-offset-4 transition-colors duration-200 hover:text-primary hover:underline"
+          className="mt-5 inline-block cursor-pointer text-sm font-medium text-ink-soft underline-offset-4 transition-colors duration-200 hover:text-primary-soft hover:underline"
         >
           Or browse without signing up
         </a>
@@ -80,7 +80,7 @@ export default function Hero({ covers }: { covers: HeroCover[] }) {
                   alt={i === SLOTS.length - 1 ? cover.alt : ""}
                   fill
                   sizes="(max-width: 640px) 288px, 384px"
-                  className="rounded-3xl object-cover shadow-2xl shadow-ink/20"
+                  className="rounded-3xl object-cover shadow-2xl shadow-black/50"
                   priority={i === SLOTS.length - 1}
                 />
               </div>

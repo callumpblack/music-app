@@ -24,8 +24,8 @@ export default function Toast({ toast, onDismiss }: ToastProps) {
   return (
     <div
       role="status"
-      className={`animate-fade-up fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-xl ${
-        toast.kind === "success" ? "bg-mint" : "bg-primary"
+      className={`animate-fade-up fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full px-6 py-3 text-sm font-semibold shadow-xl shadow-black/40 ${
+        toast.kind === "success" ? "bg-mint text-white" : "bg-accent text-surface"
       }`}
     >
       {toast.text}

@@ -26,7 +26,7 @@ export default function StarRating({ value, onChange, size = "sm" }: StarRatingP
           <svg
             viewBox="0 0 24 24"
             className={`${starClass} transition-colors duration-150 ${
-              filled ? "text-star" : "text-gray-300"
+              filled ? "text-star" : "text-white/20"
             } ${interactive && filled && hovered === 0 && star === value ? "animate-pop" : ""}`}
             fill="currentColor"
             aria-hidden="true"

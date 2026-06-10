@@ -6,7 +6,7 @@ const LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-rose-100 bg-white/60">
+    <footer className="border-t border-edge bg-card/40">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6">
         <div className="flex items-center gap-2">
           <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-primary">
@@ -24,7 +24,7 @@ export default function Footer() {
             <a
               key={link.label}
               href={link.href}
-              className="cursor-pointer text-sm font-medium text-ink-soft transition-colors duration-200 hover:text-primary"
+              className="cursor-pointer text-sm font-medium text-ink-soft transition-colors duration-200 hover:text-primary-soft"
             >
               {link.label}
             </a>

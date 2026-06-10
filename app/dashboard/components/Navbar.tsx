@@ -24,12 +24,12 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
     `rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
       pathname === href
         ? "bg-primary text-white"
-        : "text-ink-soft hover:bg-primary-faint hover:text-primary"
+        : "text-ink-soft hover:bg-primary-faint hover:text-primary-soft"
     }`;
 
   return (
     <header className="fixed top-4 right-4 left-4 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-rose-100 bg-white/90 px-4 py-2 shadow-lg shadow-rose-100/50 backdrop-blur-md sm:px-6">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-edge bg-card/90 px-4 py-2 shadow-lg shadow-black/40 backdrop-blur-md sm:px-6">
         <Link href="/dashboard" className="flex items-center gap-2">
           <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary">
             <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-white" aria-hidden="true">
@@ -60,7 +60,7 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
                 className="rounded-full"
               />
             ) : (
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-faint text-sm font-bold text-accent">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-faint text-sm font-bold text-primary-soft">
                 {username.charAt(0).toUpperCase()}
               </span>
             )}
@@ -69,7 +69,7 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
           <form action="/api/auth/logout" method="POST">
             <button
               type="submit"
-              className="cursor-pointer rounded-full border border-rose-200 px-4 py-1.5 text-sm font-semibold text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
+              className="cursor-pointer rounded-full border border-edge px-4 py-1.5 text-sm font-semibold text-ink-soft transition-colors duration-200 hover:bg-primary hover:text-white"
             >
               Log out
             </button>
@@ -94,7 +94,7 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
       </nav>
 
       {menuOpen && (
-        <div className="animate-fade-up mx-auto mt-2 max-w-7xl rounded-3xl border border-rose-100 bg-white/95 p-4 shadow-lg shadow-rose-100/50 backdrop-blur-md md:hidden">
+        <div className="animate-fade-up mx-auto mt-2 max-w-7xl rounded-3xl border border-edge bg-card/95 p-4 shadow-lg shadow-black/40 backdrop-blur-md md:hidden">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <Link
@@ -107,7 +107,7 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
               </Link>
             ))}
           </div>
-          <div className="mt-3 flex items-center justify-between border-t border-rose-100 pt-3">
+          <div className="mt-3 flex items-center justify-between border-t border-edge pt-3">
             <div className="flex items-center gap-2">
               {profileImageUrl ? (
                 <Image
@@ -118,7 +118,7 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
                   className="rounded-full"
                 />
               ) : (
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-faint text-sm font-bold text-accent">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-faint text-sm font-bold text-primary-soft">
                   {username.charAt(0).toUpperCase()}
                 </span>
               )}
@@ -127,7 +127,7 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
             <form action="/api/auth/logout" method="POST">
               <button
                 type="submit"
-                className="cursor-pointer rounded-full border border-rose-200 px-4 py-1.5 text-sm font-semibold text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
+                className="cursor-pointer rounded-full border border-edge px-4 py-1.5 text-sm font-semibold text-ink-soft transition-colors duration-200 hover:bg-primary hover:text-white"
               >
                 Log out
               </button>

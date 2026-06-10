@@ -110,7 +110,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-ink/50 backdrop-blur-sm sm:items-center sm:p-6"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-sm sm:items-center sm:p-6"
       onClick={onClose}
     >
       <div
@@ -118,7 +118,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
         aria-modal="true"
         aria-label={existing ? "Edit review" : "Add an album"}
         onClick={(e) => e.stopPropagation()}
-        className="animate-fade-up max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-3xl bg-white p-6 shadow-2xl sm:rounded-3xl"
+        className="animate-fade-up max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-3xl border border-edge bg-card p-6 shadow-2xl shadow-black/50 sm:rounded-3xl"
       >
         <div className="flex items-center justify-between">
           <h2 className="font-display text-2xl text-ink">
@@ -128,7 +128,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="cursor-pointer rounded-full p-2 text-ink-soft transition-colors duration-200 hover:bg-primary-faint hover:text-primary"
+            className="cursor-pointer rounded-full p-2 text-ink-soft transition-colors duration-200 hover:bg-primary-faint hover:text-primary-soft"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true">
               <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
@@ -148,10 +148,10 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
               autoFocus
               onChange={(e) => setQuery(e.target.value)}
               placeholder="e.g. Blonde, In Rainbows…"
-              className="mt-2 w-full rounded-2xl border border-rose-200 bg-cream px-4 py-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+              className="mt-2 w-full rounded-2xl border border-edge bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-primary-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-soft/40"
             />
             {(searching || results.length > 0) && query.trim().length >= 2 && !selected && (
-              <ul className="absolute z-10 mt-2 max-h-72 w-full overflow-y-auto rounded-2xl border border-rose-100 bg-white shadow-xl">
+              <ul className="absolute z-10 mt-2 max-h-72 w-full overflow-y-auto rounded-2xl border border-edge bg-card shadow-xl shadow-black/50">
                 {searching && (
                   <li className="px-4 py-3 text-sm text-ink-soft">Searching…</li>
                 )}
@@ -196,7 +196,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
         )}
 
         {selected && (
-          <div className="mt-5 flex gap-4 rounded-3xl bg-cream p-4">
+          <div className="mt-5 flex gap-4 rounded-3xl bg-surface p-4">
             {selected.coverImageUrl && (
               <Image
                 src={selected.coverImageUrl}
@@ -217,7 +217,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
                   {selected.genres.slice(0, 3).map((genre) => (
                     <span
                       key={genre}
-                      className="rounded-full bg-accent-faint px-2 py-0.5 text-xs font-medium text-accent"
+                      className="rounded-full bg-primary-faint px-2 py-0.5 text-xs font-medium text-primary-soft"
                     >
                       {genre}
                     </span>
@@ -235,7 +235,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
                 <button
                   type="button"
                   onClick={() => setSelected(null)}
-                  className="mt-2 cursor-pointer text-xs font-semibold text-primary hover:underline"
+                  className="mt-2 cursor-pointer text-xs font-semibold text-primary-soft hover:underline"
                 >
                   Choose a different album
                 </button>
@@ -256,7 +256,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
                 value={listenedDate}
                 max={today()}
                 onChange={(e) => setListenedDate(e.target.value)}
-                className="mt-2 w-full rounded-2xl border border-rose-200 bg-cream px-4 py-3 text-ink focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="mt-2 w-full rounded-2xl border border-edge bg-surface px-4 py-3 text-ink [color-scheme:dark] focus:border-primary-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-soft/40"
               />
             </div>
 
@@ -277,12 +277,12 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
                 onChange={(e) => setReviewText(e.target.value)}
                 rows={3}
                 placeholder="What did you think?"
-                className="mt-2 w-full rounded-2xl border border-rose-200 bg-cream px-4 py-3 text-ink placeholder:text-ink-soft/60 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="mt-2 w-full rounded-2xl border border-edge bg-surface px-4 py-3 text-ink placeholder:text-ink-soft/60 focus:border-primary-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-soft/40"
               />
             </div>
 
             {error && (
-              <p role="alert" className="rounded-2xl bg-primary-faint px-4 py-3 text-sm font-medium text-primary">
+              <p role="alert" className="rounded-2xl bg-accent-faint px-4 py-3 text-sm font-medium text-accent">
                 {error}
               </p>
             )}
@@ -291,7 +291,7 @@ export default function AddAlbumModal({ existing, onClose, onSaved }: AddAlbumMo
               type="button"
               onClick={handleSave}
               disabled={saving}
-              className="w-full cursor-pointer rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/30 transition-colors duration-200 hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full cursor-pointer rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-black/30 transition-colors duration-200 hover:bg-primary-deep disabled:cursor-not-allowed disabled:opacity-60"
             >
               {saving ? "Saving…" : existing ? "Update review" : "Save to library"}
             </button>
