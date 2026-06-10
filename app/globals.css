@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fff8f4;
+  --color-ink: #231a2e;
+  --color-ink-soft: #5c5470;
+  --color-primary: #e11d48;
+  --color-primary-soft: #fb7185;
+  --color-primary-faint: #ffe4e6;
+  --color-accent: #2563eb;
+  --color-accent-faint: #dbeafe;
+  --color-star: #f59e0b;
+  --color-mint: #10b981;
+  --font-display: var(--font-righteous), sans-serif;
+  --font-sans: var(--font-poppins), sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-primary-faint);
+  color: var(--color-primary);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+.animate-pop {
+  animation: pop 0.25s ease-out both;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
