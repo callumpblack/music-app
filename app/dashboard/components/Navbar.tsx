@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
+  { href: "/dashboard/feed", label: "Home" },
   { href: "/dashboard", label: "Library" },
   { href: "/dashboard/upcoming", label: "Upcoming" },
   { href: "/dashboard/rankings", label: "Rankings" },
@@ -30,7 +31,7 @@ export default function Navbar({ username, profileImageUrl }: NavbarProps) {
   return (
     <header className="fixed top-4 right-4 left-4 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-edge bg-card/90 px-4 py-2 shadow-lg shadow-black/40 backdrop-blur-md sm:px-6">
-        <Link href="/dashboard" className="flex items-center gap-2">
+        <Link href="/dashboard/feed" className="flex items-center gap-2">
           <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary">
             <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-white" aria-hidden="true">
               <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />

@@ -16,7 +16,7 @@ export default async function DashboardLayout({
         username={session.username}
         profileImageUrl={session.profileImageUrl}
       />
-      <main className="mx-auto max-w-7xl px-4 pt-24 pb-16 sm:px-6">{children}</main>
+      <main className="mx-auto max-w-7xl px-4 pt-28 pb-16 sm:px-6">{children}</main>
     </div>
   );
 }

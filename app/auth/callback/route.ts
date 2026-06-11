@@ -112,7 +112,7 @@ export async function GET(request: NextRequest) {
       profileImageUrl: user.profile_image_url,
     });
 
-    const response = NextResponse.redirect(new URL("/dashboard", getBaseUrl(request)));
+    const response = NextResponse.redirect(new URL("/dashboard/feed", getBaseUrl(request)));
     const { name, ...options } = sessionCookieOptions();
     response.cookies.set(name, token, options);
     return response;

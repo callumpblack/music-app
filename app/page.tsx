@@ -24,7 +24,7 @@ export default async function LandingPage({
   searchParams: Promise<{ error?: string }>;
 }) {
   const session = await getSession();
-  if (session) redirect("/dashboard");
+  if (session) redirect("/dashboard/feed");
   const { error } = await searchParams;
 
   let landing = { albums: [], genres: [] } as Awaited<ReturnType<typeof getLandingData>>;
@@ -59,7 +59,9 @@ export default async function LandingPage({
 
       <main>
         <Hero covers={heroCovers} />
-        <CommunityShowcase albums={landing.albums} genres={landing.genres} />
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <CommunityShowcase albums={landing.albums} genres={landing.genres} />
+        </div>
         <CTASection />
         <Features />
       </main>
